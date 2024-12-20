@@ -1,0 +1,39 @@
+{
+  "development": {
+    "username": "admin",
+    "password": "admin",
+    "database": "shamhalow_db",
+    "host": "localhost",
+    "dialect": "postgres",
+    "port":5432,
+    "dialectOptions": {
+      "useUTC": true,
+      "timezone": "Etc/GMT0"
+    },
+    "timezone": "Etc/GMT0"
+  },
+  "test": {
+    "username": "admin",
+    "password": "admin",
+    "database": "shamhalow_db",
+    "host": "localhost",
+    "dialect": "postgres",
+    "dialectOptions": {
+      "useUTC": true,
+      "timezone": "Etc/GMT0"
+    },
+    "timezone": "Etc/GMT0"
+  },
+  "production": {
+    "username": "admin",
+    "password": "admin",
+    "database": "shamhalow_db",
+    "host": "localhost",
+    "dialect": "postgres",  "dialectOptions": {
+      "useUTC": true,
+      "timezone": "Etc/GMT0"
+    },
+    "timezone": "Etc/GMT0"
+
+  }
+}

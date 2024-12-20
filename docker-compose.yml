@@ -1,0 +1,45 @@
+version: "3.8"
+services:
+  db:
+    image: postgres
+    container_name: local_pgdb
+    restart: always
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./db:/docker-entrypoint-initdb.d/
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin
+      POSTGRES_DB: shamhalow_db
+      APP_DB_USER: admin
+      APP_DB_PASS: admin
+      APP_DB_NAME: shamhalow_db
+     
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: pgadmin4_container
+    restart: always
+    ports:
+      - "8080:80"
+    environment:
+      PGADMIN_DEFAULT_EMAIL: maxime.rault1@hotmail.fr
+      PGADMIN_DEFAULT_PASSWORD: admin
+    volumes:
+      - pgadmin-data:/var/lib/pgadmin
+  emqx:
+    image: emqx/emqx:latest
+    environment:
+      EMQX_NAME: emqx
+      EMQX_HOST: 127.0.0.1
+    ports:
+    - "18083:18083"
+    - "1883:1883"
+    - "8083:8083"
+    volumes:
+      - ./emqx/data:/opt/emqx/data
+      - ./emqx/log:/opt/emqx/log
+
+volumes:
+  local_pgdata:
+  pgadmin-data:
